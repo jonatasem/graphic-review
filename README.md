@@ -30,7 +30,6 @@
 2. Navegue até a pasta do projeto:
    bash
    cd graphic-review
-   
 
 3. Instale as dependências:
    bash

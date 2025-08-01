@@ -3,7 +3,6 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
-import './styles/App.scss';
 
 import { comments } from "./service/api"; // Importa os dados
 
@@ -26,11 +25,11 @@ function App() {
     });
 
     return (
-        <>
+        <section className="container-app">
             <Header setFilters={setFilters} />
             <Dashboard comments={filteredComments} />
             <Footer comments={filteredComments} />
-        </>
+        </section>
     );
 }
 

@@ -42,6 +42,9 @@ export default function Header({ setFilters }) {
                     </select>
                 </nav>
             </article>
+            <article className="navbar-mobile">
+                <p>icon</p>
+            </article>
         </header>
     );
 }

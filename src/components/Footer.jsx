@@ -1,5 +1,7 @@
 import { useState, useMemo } from 'react';
 
+import RatingComponent from './Rating';
+
 export default function Footer({ comments }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const commentsPerPage = 3;
@@ -22,29 +24,55 @@ export default function Footer({ comments }) {
 
     return (
         <footer className="container-footer">
-            <table border="1">
+            <table border="1" className='table-desktop'>
                 <thead>
-                    <tr className='title-footer'>
-                        <th className='border-left-top'>Data</th>
-                        <th className='disable-contact'>Contato</th>
+                    <tr>
+                        <th>Data</th>
+                        <th>Contato</th>
                         <th>Avaliação</th>
                         <th>Profissional</th>
-                        <th className='disable'>Unidade</th>
+                        <th>Unidade</th>
                     </tr>
                 </thead>
                 <tbody>
                     {displayedComments.map((comment, index) => (
-                        <tr className='item' key={index}>
+                        <tr key={index}>
                             <td>{comment.date}</td>
-                            <td className='disable-contact'>{comment.contact}</td>
-                            <td>{comment.rating}</td>
+                            <td>{comment.contact}</td>
+                            <td>
+                                <RatingComponent rating={comment.rating} />
+                            </td>
                             <td>{comment.professional}</td>
-                            <td className='disable'>{comment.unidad}</td>
+                            <td>{comment.unidad}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-            <div className="pagination-controls">
+
+            <table border="1" className="table-mobile">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Avaliação</th>
+                        <th>Ver mais</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {displayedComments.map((comment, index) => (
+                        <tr key={index}>
+                            <td>{comment.date}</td>
+                            <td>
+                                <RatingComponent rating={comment.rating} />
+                            </td>
+                            <td>
+                                <button>Detalhes</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
+            <div className="page-control">
                 <button onClick={previousComments} disabled={currentIndex === 0} aria-label="Mostrar comentários anteriores">
                     Anterior
                 </button>
