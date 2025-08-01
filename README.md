@@ -1,42 +1,65 @@
-# Avaliações de Profissionais
+# Sistema de Análise de Avaliações com React
 
 ![Banner do Projeto](./src/assets/img/graphic.png)
 
-Este projeto é uma aplicação React destinada a gerenciar e exibir avaliações de profissionais. Os usuários podem filtrar as avaliações com base em diferentes critérios, visualizar dados em um gráfico e navegar pelas avaliações através de páginas.
+**graphic-review** é uma aplicação web interativa desenvolvida com React que permite visualizar e filtrar avaliações de profissionais e unidades. O projeto demonstra a aplicação de boas práticas e ferramentas modernas do ecossistema React para criar uma interface de usuário dinâmica e performática.
 
 ## Tecnologias Utilizadas
-React: Biblioteca JavaScript para construção de interfaces de usuário.
-React Icons: Para ícones no menu.
-ApexCharts: Para exibição de gráficos.
-Font Awesome: Para exibição de estrelas nas avaliações.
-SCSS: Para estilização da aplicação.
 
-## Instalação
-1. Clone o repositório:
-   git clone https://github.com/jonatasem/graphic.git
-   
-2. Navegue até o diretório do projeto:
-   cd graphic
-   
-3. Instale as dependências:
-   npm install
-   
-4. Inicie a aplicação:
-   npm start
+- **React**: Biblioteca principal para a construção da interface do usuário.
+- **Hooks**: `useState`, `useMemo`, `useCallback` e hooks customizados (`useFilters`) para gerenciar estado, otimizar performance e reutilizar lógica.
+- **CSS Modules / Sass**: Para modularizar e estilizar os componentes de forma organizada.
+- **ApexCharts.js**: Biblioteca de gráficos para a visualização dos dados.
+- **React Icons**: Para ícones modernos e leves.
 
 ## Funcionalidades
-Filtragem: Os usuários podem filtrar as avaliações por unidade, profissional e nota.
-Paginação: As avaliações são exibidas em páginas, permitindo uma melhor navegação.
-Gráficos: Um gráfico de barras exibe a contagem de avaliações por nota.
-Estilização Responsiva: O layout se adapta a diferentes tamanhos de tela.
 
-## Contribuição
-Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+- **Filtros Dinâmicos**: O usuário pode filtrar as avaliações por unidade, profissional e nota em tempo real.
+- **Gráfico Interativo**: Um gráfico de barras exibe a distribuição das notas de acordo com os filtros aplicados, proporcionando uma visão clara dos dados.
+- **Paginação Otimizada**: A tabela de comentários no rodapé possui paginação, com o cálculo otimizado através de `useMemo` para evitar re-renderizações desnecessárias.
+- **Componentização e Abstração**: O projeto é estruturado em componentes funcionais e utiliza hooks customizados para abstrair a lógica de filtragem, tornando o código limpo e de fácil manutenção.
+- **Design Responsivo**: A interface se adapta a diferentes tamanhos de tela, garantindo uma boa experiência tanto em desktops quanto em dispositivos móveis.
 
-## Licença
-Este projeto está sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+## Como Rodar o Projeto
 
-## Contato
-Se você tiver dúvidas ou sugestões, entre em contato:
+1. Clone o repositório:
+   bash
+   git clone https://github.com/jonatasem/graphic-review.git
+   
 
-Seu Nome: seu-email@example.com
+2. Navegue até a pasta do projeto:
+   bash
+   cd graphic-review
+   
+
+3. Instale as dependências:
+   bash
+   npm install
+   
+   ou
+   bash
+   yarn install
+   
+
+4. Inicie o servidor de desenvolvimento:
+   bash
+   npm start
+   
+   ou
+   bash
+   yarn start
+   
+
+O aplicativo estará disponível em http://localhost:5173.
+
+## Contribuições
+
+Sinta-se à vontade para contribuir com este projeto! Se você encontrar um bug ou tiver uma ideia para uma nova funcionalidade, por favor, abra uma issue ou envie um pull request.
+
+## Autor
+
+**Jonatas Elieser Moreira**
+
+- [GitHub](https://github.com/jonatasem)
+- [LinkedIn](https://www.linkedin.com/in/jonatasem)
+
