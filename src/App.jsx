@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Dashboard from "./pages/Dashboard";
 
-import { comments } from "./service/api"; // Importa os dados
+import { comments } from "./service/api";
 
 function App() {
 

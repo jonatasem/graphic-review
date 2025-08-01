@@ -13,7 +13,7 @@ export default function RatingComponent({ rating }) {
 
         // Adiciona estrelas vazias
         for (let i = currentRating; i < totalStars; i++) {
-            stars.push(<span key={`empty-${i}`} className="star star-check">☆</span>);
+            stars.push(<span key={`check-${i}`} className="star star-check">☆</span>);
         }
 
         return stars;

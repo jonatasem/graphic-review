@@ -1,17 +1,9 @@
 import { useMemo } from "react";
 import Chart from "react-apexcharts";
 import 'font-awesome/css/font-awesome.min.css';
+import RatingComponent from "../components/Rating";
 
-export default function Dashboard({ comments }) {
-
-    // Função para renderizar as estrelas (movida para dentro do componente)
-    const renderStars = (rating) => {
-        return Array.from({ length: 5 }, (_, i) => (
-            <i key={i + 1} className={`fa fa-star ${i < rating ? 'star-check' : ''}`}></i>
-        ));
-    };
-
-    // Usamos useMemo para otimizar o cálculo dos dados do gráfico
+export default function Dashboard({ comments }){
     const chartData = useMemo(() => {
         const ratingsCount = [0, 0, 0, 0, 0];
         let notRatedCount = 0;
@@ -57,12 +49,11 @@ export default function Dashboard({ comments }) {
                     {[5, 4, 3, 2, 1].map(rating => (
                         <li key={rating}>
                             <strong>{rating}.0</strong>
-                            <p>{renderStars(rating)}</p>
+                            <RatingComponent rating={rating} />
                         </li>
                     ))}
-                    <li>
+                    <li className="no-assessment">
                         <strong>Não Avaliaram</strong>
-                        <p></p>
                     </li>
                 </ul>
             </article>
@@ -78,4 +69,4 @@ export default function Dashboard({ comments }) {
             </article>
         </main>
     );
-}
+};
