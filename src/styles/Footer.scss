@@ -1,0 +1,172 @@
+@use 'variables' as *;
+
+.container-footer {
+
+    .table-desktop {
+        width: $container-width;
+        margin: 0 auto;
+        border-spacing: 0;
+        border-radius: 0.5rem;
+        border: 1px solid #c0c0c080;
+
+        thead th,
+        tbody tr {
+            padding: 0.2rem;
+            font-size: 16px;
+            color: #000000dc;
+            text-align: center;
+        }
+
+        thead th {     
+            border: $border-style;
+        }
+
+        tbody tr {
+            &:hover {
+                background-color: $hover-color;
+                cursor: pointer;
+            }
+
+            td {        
+                border: $border-style;
+            }
+        }
+    }
+
+    .page-control {
+        width: $container-width;
+        display: flex;
+        margin: 1rem auto;
+        justify-content: flex-end;
+
+        button {
+            cursor: pointer;
+            padding: 0.2rem;
+            margin-left: 0.5rem;
+        }
+    }
+
+    .number-page {
+        display: flex;
+        justify-content: flex-end;
+        width: $container-width;
+        margin: 0 auto 1rem;
+    }
+
+
+    //mobile
+    .table-mobile {
+        display: none;
+        border: 1px solid #c0c0c080;
+    }
+
+    //popup
+    .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+    }
+
+    .popup-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 500px;
+        width: 90%;
+        position: relative;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        p {
+            &:last-child {
+                display: flex;    
+            }
+        }
+    }
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #333;
+    }   
+}
+
+
+@media (max-width:768px) {
+    .container-footer {
+        .table-desktop {
+            display: none;
+        }
+
+        .table-mobile {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+
+            thead th,
+            tbody tr td {
+                width: calc(100% / 8);
+                padding: 0.2rem;
+                text-align: start;
+                font-size: 16px;
+            }
+
+            thead {
+                width: 100%; 
+
+                tr {
+                    th {
+                        text-align: center;            
+                        border: $border-style;
+                        
+                        &:first-child {
+                            text-align: start;
+                        }
+
+                        &:last-child {
+                            text-align: end;
+                        }
+                    }
+                }
+            }
+
+            tbody {
+
+                tr {
+                    td {
+                        border: $border-style;
+                        text-align: center;
+                        
+                        &:first-child {
+                            text-align: start;
+                        }
+
+                        &:last-child {
+                            text-align: end;
+
+                            button {
+                                color: white;
+                                font-weight: 800;
+                                background-color: orange;
+                                padding: 0.2rem 0.5rem;
+                                border: 1px solid #c0c0c071;
+                                border-radius: 0.2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

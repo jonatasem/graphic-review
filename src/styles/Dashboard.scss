@@ -1,0 +1,104 @@
+@use 'variables' as *;
+
+
+.container-main {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem auto 0;
+    width: $container-width;
+    
+    .avaliation-list {
+        width: 100%;
+        max-width: 200px;
+
+        h2 {
+            margin-bottom: 1.5rem;
+            font-size: 18px;
+        }
+
+        ul {
+
+            li {
+                display: flex;
+                margin-bottom: 1.2rem;
+                padding-bottom: 1.05rem;
+                max-height: 25px;
+                align-items: center;
+                font-size: 16px;
+                border-bottom: 1px solid #c0c0c0ad;
+
+                &:last-child {
+                    margin: 0 0 0 0;
+                }
+
+                strong {
+                    margin-right: 0.5rem;
+                }
+            }
+            .no-assessment {
+                min-width: max-content;
+            }
+        }
+    }
+
+    .avaliation-graphic {
+        width: calc(100% - 200px - 1.5rem);
+    }
+}
+
+@media(max-width:1366px){
+    .container-main {
+            .avaliation-list {
+            width: 100%;
+            max-width: 200px;
+
+            h2 {
+                margin-bottom: 1.5rem;
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media(max-width:1099px){
+    .container-main {
+        .avaliation-graphic {
+            width: calc(100% - 200px - 0.5rem);
+        }
+    }
+}
+
+@media(max-width:899px){
+    .container-main {
+        .avaliation-graphic {
+            width: calc(100% - 200px);
+        }
+    }
+}
+
+@media(max-width:768px){
+    .container-main {
+        .avaliation-list {
+            max-width: 150px;
+        }
+        .avaliation-graphic {
+            width: calc(100% - 150px);
+        }
+    }
+}
+
+@media(max-width:599px){
+    .container-main {
+        .avaliation-list {
+            max-width: 120px;
+
+            h2 {
+                font-size: 16px;
+                min-width: max-content;
+            }
+        }
+        .avaliation-graphic {
+            width: calc(100% - 120px);
+        }
+    }
+}
