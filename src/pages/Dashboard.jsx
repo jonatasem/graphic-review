@@ -22,7 +22,7 @@ export default function Dashboard({ comments }){
                 name: "Avaliações",
                 data: [...ratingsCount, notRatedCount]
             }],
-            categories: ["5", "4", "3", "2", "1", "N.A."]
+            categories: ["", "", "", "", "", ""]
         };
     }, [comments]);
 
