@@ -38,11 +38,11 @@ export default function Header({ setFilters }) {
                     </select>
                     <select onChange={(e) => handleFilterChange('rating', e.target.value)}>
                         <option value="">Notas</option>
-                        <option value="5">5.0</option>
-                        <option value="4">4.0</option>
+                        <option value="1">5.0</option>
+                        <option value="2">4.0</option>
                         <option value="3">3.0</option>
-                        <option value="2">2.0</option>
-                        <option value="1">1.0</option>
+                        <option value="4">2.0</option>
+                        <option value="5">1.0</option>
                         <option value="N. A">Não Avaliaram</option>
                     </select>
                 </nav>
@@ -76,11 +76,11 @@ export default function Header({ setFilters }) {
                         </select>
                         <select onChange={(e) => { handleFilterChange('rating', e.target.value); toggleMenu(); }}>
                             <option value="">Notas</option>
-                            <option value="5">5.0</option>
-                            <option value="4">4.0</option>
+                            <option value="1">5.0</option>
+                            <option value="2">4.0</option>
                             <option value="3">3.0</option>
-                            <option value="2">2.0</option>
-                            <option value="1">1.0</option>
+                            <option value="4">2.0</option>
+                            <option value="5">1.0</option>
                             <option value="N. A">Não Avaliaram</option>
                         </select>
                     </nav>
