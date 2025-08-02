@@ -3,12 +3,12 @@ import RatingComponent from './Rating';
 
 export default function Footer({ comments }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [selectedComment, setSelectedComment] = useState(null); // Estado para o pop-up
+    const [selectedComment, setSelectedComment] = useState(null);
     const commentsPerPage = 3;
 
     const displayedComments = useMemo(() => {
         return comments.slice(currentIndex, currentIndex + commentsPerPage);
-    }, [comments, currentIndex]);
+    }, [comments, currentIndex, commentsPerPage]);
 
     const totalPages = useMemo(() => {
         return Math.ceil(comments.length / commentsPerPage);
@@ -22,7 +22,6 @@ export default function Footer({ comments }) {
         setCurrentIndex((prevIndex) => Math.max(prevIndex - commentsPerPage, 0));
     };
 
-    // Funções para abrir e fechar o pop-up
     const handleOpenPopup = (comment) => {
         setSelectedComment(comment);
     };

@@ -21,12 +21,14 @@ export default function Header({ setFilters }) {
             
             <article className="nav-bar">
                 <nav>
+                    
                     <select onChange={(e) => handleFilterChange('unidad', e.target.value)}>
                         <option value="">Unidades</option>
                         <option value="Unidade A">Unidade A</option>
                         <option value="Unidade B">Unidade B</option>
                         <option value="Unidade C">Unidade C</option>
                     </select>
+
                     <select onChange={(e) => handleFilterChange('professional', e.target.value)}>
                         <option value="">Profissionais</option>
                         <option value="Maria Silva">Maria Silva</option>
@@ -36,6 +38,7 @@ export default function Header({ setFilters }) {
                         <option value="Fernanda Santos">Fernanda Santos</option>
                         <option value="Ricardo Almeida">Ricardo Almeida</option>
                     </select>
+
                     <select onChange={(e) => handleFilterChange('rating', e.target.value)}>
                         <option value="">Notas</option>
                         <option value="5">5.0</option>
@@ -45,6 +48,7 @@ export default function Header({ setFilters }) {
                         <option value="1">1.0</option>
                         <option value="N. A">Não Avaliaram</option>
                     </select>
+
                 </nav>
             </article>
 
@@ -59,12 +63,14 @@ export default function Header({ setFilters }) {
             {isMenuOpen && (
                 <div className={`mobile-menu-container ${isMenuOpen ? 'open' : ''}`}>
                     <nav className="mobile-nav-bar">
+
                         <select onChange={(e) => { handleFilterChange('unidad', e.target.value); toggleMenu(); }}>
                             <option value="">Unidades</option>
                             <option value="Unidade A">Unidade A</option>
                             <option value="Unidade B">Unidade B</option>
                             <option value="Unidade C">Unidade C</option>
                         </select>
+
                         <select onChange={(e) => { handleFilterChange('professional', e.target.value); toggleMenu(); }}>
                             <option value="">Profissionais</option>
                             <option value="Maria Silva">Maria Silva</option>
@@ -74,6 +80,7 @@ export default function Header({ setFilters }) {
                             <option value="Fernanda Santos">Fernanda Santos</option>
                             <option value="Ricardo Almeida">Ricardo Almeida</option>
                         </select>
+
                         <select onChange={(e) => { handleFilterChange('rating', e.target.value); toggleMenu(); }}>
                             <option value="">Notas</option>
                             <option value="5">5.0</option>
@@ -83,6 +90,7 @@ export default function Header({ setFilters }) {
                             <option value="1">1.0</option>
                             <option value="N. A">Não Avaliaram</option>
                         </select>
+
                     </nav>
                 </div>
             )}
