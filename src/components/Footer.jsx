@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import RatingComponent from './Rating';
 
 export default function Footer({ comments }) {
@@ -6,6 +6,12 @@ export default function Footer({ comments }) {
     const [selectedComment, setSelectedComment] = useState(null);
     const commentsPerPage = 3;
 
+    // UseEffect para resetar a paginação quando a lista de comentários muda
+    useEffect(() => {
+        // Redefine currentIndex para 0 sempre que a prop 'comments' mudar
+        setCurrentIndex(0);
+    }, [comments]); 
+    
     const displayedComments = useMemo(() => {
         return comments.slice(currentIndex, currentIndex + commentsPerPage);
     }, [comments, currentIndex, commentsPerPage]);
@@ -73,7 +79,6 @@ export default function Footer({ comments }) {
                                 <RatingComponent rating={comment.rating} />
                             </td>
                             <td>
-                
                                 <button onClick={() => handleOpenPopup(comment)}>Detalhes</button>
                             </td>
                         </tr>
