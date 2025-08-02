@@ -17,7 +17,7 @@ export default function Dashboard({ comments }){
             }
         });
 
-        const categories = ["5", "4", "3", "2", "1", "N.A"];
+        const categories = ["", "", "", "", "", ""];
         const data = [...ratingsCount, notRatedCount];
 
         return {
