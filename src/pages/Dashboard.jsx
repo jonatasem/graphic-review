@@ -5,7 +5,7 @@ import RatingComponent from "../components/Rating";
 
 export default function Dashboard({ comments }){
     const chartData = useMemo(() => {
-        const ratingsCount = [0, 0, 0, 0, 0];
+        const ratingsCount = [0, 0, 0, 0, 0]; // 5, 4, 3, 2, 1
         let notRatedCount = 0;
 
         comments.forEach(comment => {
@@ -17,7 +17,7 @@ export default function Dashboard({ comments }){
             }
         });
 
-        const categories = ["", "", "", "", "", ""];
+        const categories = ["5", "4", "3", "2", "1", "N.A"];
         const data = [...ratingsCount, notRatedCount];
 
         return {
@@ -46,7 +46,6 @@ export default function Dashboard({ comments }){
 
     return (
         <main className="container-main">
-            
             <article className="avaliation-list">
                 <h2>{comments.length} Avaliações</h2>
                 <ul>
@@ -61,7 +60,6 @@ export default function Dashboard({ comments }){
                     </li>
                 </ul>
             </article>
-
             <article className="avaliation-graphic">
                 <Chart
                     className="chart"
@@ -72,7 +70,6 @@ export default function Dashboard({ comments }){
                     height="330"
                 />
             </article>
-
         </main>
     );
 };
