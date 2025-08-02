@@ -22,7 +22,7 @@ export default function Dashboard({ comments }){
                 name: "Avaliações",
                 data: [...ratingsCount, notRatedCount]
             }],
-            categories: ["1", "2", "3", "4", "5", "N.A."]
+            categories: ["5", "4", "3", "2", "1", "N.A."]
         };
     }, [comments]);
 
@@ -46,7 +46,7 @@ export default function Dashboard({ comments }){
             <article className="avaliation-list">
                 <h2>{comments.length} Avaliações</h2>
                 <ul>
-                    {[5, 4, 3, 2, 1].map(rating => (
+                    {[1, 2, 3, 4, 5].map(rating => (
                         <li key={rating}>
                             <strong>{rating}.0</strong>
                             <RatingComponent rating={rating} />
