@@ -1,9 +1,9 @@
 import { useState, useMemo } from 'react';
-
 import RatingComponent from './Rating';
 
 export default function Footer({ comments }) {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [selectedComment, setSelectedComment] = useState(null); // Estado para o pop-up
     const commentsPerPage = 3;
 
     const displayedComments = useMemo(() => {
@@ -15,11 +15,20 @@ export default function Footer({ comments }) {
     }, [comments, commentsPerPage]);
 
     const nextComments = () => {
-        setCurrentIndex((prevIndex) => Math.min(prevIndex + commentsPerPage, comments.length - 1));
+        setCurrentIndex((prevIndex) => Math.min(prevIndex + commentsPerPage, comments.length - commentsPerPage));
     };
 
     const previousComments = () => {
         setCurrentIndex((prevIndex) => Math.max(prevIndex - commentsPerPage, 0));
+    };
+
+    // Funções para abrir e fechar o pop-up
+    const handleOpenPopup = (comment) => {
+        setSelectedComment(comment);
+    };
+
+    const handleClosePopup = () => {
+        setSelectedComment(null);
     };
 
     return (
@@ -65,7 +74,8 @@ export default function Footer({ comments }) {
                                 <RatingComponent rating={comment.rating} />
                             </td>
                             <td>
-                                <button>Detalhes</button>
+                
+                                <button onClick={() => handleOpenPopup(comment)}>Detalhes</button>
                             </td>
                         </tr>
                     ))}
@@ -83,6 +93,20 @@ export default function Footer({ comments }) {
             <div className='number-page'>
                 Página {Math.floor(currentIndex / commentsPerPage) + 1} de {totalPages || 1}
             </div>
+
+            {selectedComment && (
+                <div className="popup-overlay">
+                    <div className="popup-content">
+                        <button onClick={handleClosePopup} className="close-button">X</button>
+                        <h3>Detalhes do Comentário</h3>
+                        <p><strong>Data:</strong> {selectedComment.date}</p>
+                        <p><strong>Contato:</strong> {selectedComment.contact}</p>
+                        <p><strong>Profissional:</strong> {selectedComment.professional}</p>
+                        <p><strong>Unidade:</strong> {selectedComment.unidad}</p>
+                        <p><strong>Avaliação:</strong> <RatingComponent rating={selectedComment.rating} /></p>
+                    </div>
+                </div>
+            )}
         </footer>
     );
 }
