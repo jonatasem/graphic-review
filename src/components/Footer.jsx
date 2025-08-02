@@ -1,11 +1,17 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import RatingComponent from './Rating';
 
 export default function Footer({ comments }) {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [selectedComment, setSelectedComment] = useState(null); // Estado para o pop-up
+    const [selectedComment, setSelectedComment] = useState(null);
     const commentsPerPage = 3;
 
+    // UseEffect para resetar a paginação quando a lista de comentários muda
+    useEffect(() => {
+        // Redefine currentIndex para 0 sempre que a prop 'comments' mudar
+        setCurrentIndex(0);
+    }, [comments]); 
+    
     const displayedComments = useMemo(() => {
         return comments.slice(currentIndex, currentIndex + commentsPerPage);
     }, [comments, currentIndex]);
@@ -22,7 +28,6 @@ export default function Footer({ comments }) {
         setCurrentIndex((prevIndex) => Math.max(prevIndex - commentsPerPage, 0));
     };
 
-    // Funções para abrir e fechar o pop-up
     const handleOpenPopup = (comment) => {
         setSelectedComment(comment);
     };
@@ -74,7 +79,6 @@ export default function Footer({ comments }) {
                                 <RatingComponent rating={comment.rating} />
                             </td>
                             <td>
-                
                                 <button onClick={() => handleOpenPopup(comment)}>Detalhes</button>
                             </td>
                         </tr>
