@@ -11,18 +11,21 @@ export default function Dashboard({ comments }){
         comments.forEach(comment => {
             const rating = parseInt(comment.rating);
             if (rating >= 1 && rating <= 5) {
-                ratingsCount[rating - 1] += 1;
+                ratingsCount[5 - rating] += 1;
             } else {
                 notRatedCount += 1;
             }
         });
 
+        const categories = ["", "", "", "", "", ""];
+        const data = [...ratingsCount, notRatedCount];
+
         return {
             series: [{
                 name: "Avaliações",
-                data: [...ratingsCount, notRatedCount]
+                data: data
             }],
-            categories: ["", "", "", "", "", ""]
+            categories: categories
         };
     }, [comments]);
 
@@ -43,10 +46,11 @@ export default function Dashboard({ comments }){
 
     return (
         <main className="container-main">
+            
             <article className="avaliation-list">
                 <h2>{comments.length} Avaliações</h2>
                 <ul>
-                    {[1, 2, 3, 4, 5].map(rating => (
+                    {[5, 4, 3, 2, 1].map(rating => (
                         <li key={rating}>
                             <strong>{rating}.0</strong>
                             <RatingComponent rating={rating} />
@@ -57,6 +61,7 @@ export default function Dashboard({ comments }){
                     </li>
                 </ul>
             </article>
+
             <article className="avaliation-graphic">
                 <Chart
                     className="chart"
@@ -67,6 +72,7 @@ export default function Dashboard({ comments }){
                     height="330"
                 />
             </article>
+
         </main>
     );
 };

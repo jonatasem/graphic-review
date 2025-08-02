@@ -14,7 +14,7 @@ export default function Footer({ comments }) {
     
     const displayedComments = useMemo(() => {
         return comments.slice(currentIndex, currentIndex + commentsPerPage);
-    }, [comments, currentIndex]);
+    }, [comments, currentIndex, commentsPerPage]);
 
     const totalPages = useMemo(() => {
         return Math.ceil(comments.length / commentsPerPage);

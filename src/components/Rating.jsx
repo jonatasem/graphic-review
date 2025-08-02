@@ -1,7 +1,6 @@
 
-// O componente recebe a rating como uma prop
 export default function RatingComponent({ rating }) {
-    // Função para renderizar as estrelas
+    
     const renderStars = (currentRating) => {
         const totalStars = 5;
         const stars = [];
